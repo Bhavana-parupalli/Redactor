@@ -118,7 +118,7 @@ def concept(doc, w):
     return doc,sentences_list
 
 def output(doc,filename,path):
-    outputfile = ('./%s %s.redacted.txt' %(path, filename))
+    outputfile = ('./%s %s.redacted' %(path, filename))
     with open(outputfile, "w+", encoding='utf-8') as f:
         f.write(doc)
         f.close()
