@@ -149,7 +149,7 @@ def stats(doc_stats,a,filename,w):
     if a=='stdout':
         for i in stats_list:
             print(i)
-    elif a=='stderr':
+    else:
         txtfile = ('./stderr/stderr%s' %filename)
         with open(txtfile, "w+", encoding='utf-8') as f:
             for i in stats_list:

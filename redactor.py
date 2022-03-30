@@ -12,7 +12,7 @@ if __name__=='__main__':
     parser.add_argument("--address", action="store_true")
     parser.add_argument("--concept", type=str)
     parser.add_argument("--output", required=True, type=str)
-    parser.add_argument("--stats", choices=('stdout','stderr'))
+    parser.add_argument("--stats")
 
     args=parser.parse_args()
 
