@@ -1,9 +1,4 @@
 # cs5293sp22-project1
-
-# Project Title
-
-A brief description of what this project does and who it's for
-
 ## Author: Bhavana Parupalli
 ## Email: parupallibhavana123@ou.edu
 ## Packages installed
