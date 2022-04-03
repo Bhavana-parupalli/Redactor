@@ -3,10 +3,15 @@ import spacy
 nlp=spacy.blank("en")
 nlp=spacy.load('en_core_web_sm')
 from spacy.matcher import Matcher
-from spacy.matcher import PhraseMatcher
 import re
 import os
 from spacy.util import filter_spans
+import nltk
+nltk.download('omw-1.4')
+nltk.download('punkt')
+nltk.download('wordnet')
+from nltk.corpus import wordnet
+from nltk.tokenize  import sent_tokenize,word_tokenize
 
 def inputfiles(file):
     with open(file, 'r') as f:
@@ -72,13 +77,13 @@ def phone_numbers(doc):
 
 def gender(doc):
     nlp_doc=nlp(doc)
-    g_list=['She', 'he', 'her', 'she', 'him', 'He', 'his', 'father', 'Mother', 'Father', 'mother', 'male', 'female', 'Male', 'Female']
+    g_list=['she', 'he', 'her', 'him', 'his', 'father', 'mother', 'male', 'female', 'daughter', 'son', 'lady', 'gentlemen', 'grandma', 'grandpa', 'dad', 'mom', 'uncle', 'aunt', 'sister', 'ms', 'mr', 'mrs', 'husband', 'wife', 'herself', 'himself']
     gender_list=[]
     for i in nlp_doc:
         if i.pos_=='PRON':
-            if i.text in g_list:
+            if i.text.lower() in g_list:
                 gender_list.append(i.text)
-        elif i.text in g_list:
+        elif i.text.lower() in g_list:
             gender_list.append(i.text)
     for i in gender_list:
         doc=doc.replace(i,u"\u2588" * len(i))
@@ -103,18 +108,19 @@ def address(doc):
 
 def concept(doc, w):
     nlp_doc=nlp(doc)
-    sentences_list = []
-    phrase_matcher = PhraseMatcher(nlp.vocab)
-    phrases = [w, 'Internet','online network']
-    patterns = [nlp(text) for text in phrases]
-    phrase_matcher.add('CAH', [*patterns])
-
-    for sent in nlp_doc.sents:
-        for match_id, start, end in phrase_matcher(nlp(sent.text)):
-            if nlp.vocab.strings[match_id] in ['CAH']:
-                sentences_list.append(sent.text)
-    for i in sentences_list:
-        doc = doc.replace(i, u"\u2588" * len(i))
+    synonyms=[]
+    synonyms_list=[]
+    sentences_list=[]
+    for synset in wordnet.synsets(w):
+        for lemma in synset.lemmas():
+            synonyms.append(lemma.name())
+    synonyms_list = set(synonyms)
+    sentences = nltk.sent_tokenize(doc)
+    for sentence in sentences:
+        for c in synonyms_list:
+            if c.lower() in sentence.lower():
+                sentences_list.append(sentence)
+                doc = doc.replace(sentence, u"\u2588" * len(sentence))
     return doc,sentences_list
 
 def output(doc,filename,path):

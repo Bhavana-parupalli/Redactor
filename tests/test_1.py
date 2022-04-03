@@ -47,7 +47,7 @@ def test_concept():
     information about the web or place your order, visit http://clickathomepilot.enron.com.'''
     word='web'
     (doc,sentences_redacted)=project1.concept(doc,word)
-    assert len(sentences_redacted)==4
+    assert len(sentences_redacted)==5
 
 
 
