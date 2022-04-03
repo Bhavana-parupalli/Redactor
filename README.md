@@ -11,6 +11,10 @@ import pytest
 import re
 from spacy.matcher import Matcher
 from spacy.matcher import PhraseMatcher
+import nltk
+nltk.download('wordnet')
+from nltk.corpus import wordnet
+from nltk.tokenize  import sent_tokenize,word_tokenize
 ```
 ## project1
 ### project1.py
@@ -29,7 +33,7 @@ The gender function takes the redacted names, dates, and phone_numbers document 
 #### address(document)
 The address function takes the redacted names, dates, phone_numbers, and genders document as argument. Then i have created a pattern using POS if NUM, PROPN, PROPN, PROPN, PUNCT, PROPN. If any such type of pattern appears in the nlp_doc. Then that address will be appended into the address_list. Additionally, using entity function in all the entities are extracted from the nlp_doc and if the label of the entities is GPE(Location) then those also will be appended into the address_list. Finally, address list is looped and the respective addresses and locations in the document are replacedusing '\u2588' and return the redacted document and address_list. Assumptions made in this step are it can only handle addresses of mentioned pattern type.
 #### concept(document, w)
-The concept function takes the names, dates, phone_numbers, genders, and address redacted document as arguments along with the word. I created a phrases list which consists of synonyms of the given word. Followed by this phrases list is added into a pattern list, and then phrase_matcher will search for the word in the nlp_doc. If word exist then the entire sentences in the nlp_doc is appended into the sentences_list. Finally, looping through the sentences_list and replacing sentences in the document with '\u2588' and return the redacted document and sentences_list.
+The concept function takes the names, dates, phone_numbers, genders, and address redacted document as arguments along with the word. I created a list to store synonyms for the given word, the wordnet.synsets() funtion gets all the synonyms of the given word and appends all the synonyms into a list. Followed by, to remove duplicated from the given list i used set, using using sent_tokenize sentences are extracted from the document, and then converting the synonyms and sentences to lower case, if words in the synonyms_list is present within the sentences then the entire sentence will be appended in to the sentences_list. Finally, looping through the sentences_list and replacing sentences in the document with '\u2588' and return the redacted document and sentences_list.
 #### output(document, filename, path)
 The output function takes the names, dates, phone_numbers, genders, address, and sentences redacted document as arguments as well as filename and path. Then it will create a filename.redaced document in the files directory. Finally, opens the .redacted file and writing the document into the file.
 #### stats(doc_stats, a, filename, w)
@@ -63,7 +67,7 @@ The test_gender function contains a gender doc and this doc is passed as an argu
 #### test_address()
 The test_address function contains a address doc and thus doc is passed as an argument to the address(doc) function in project1.py and extracts the redacted address_list. The given doc contains 2 street address and and 1 state name. Therefore, if the length of the address_list==3 then test case will pass else fail.
 #### test_concept()
-The test_concept function contains a concept doc and a word, both of them are passed as arguments to the concept(doc,w) function in project1.py and extracts the redacted sentences_list. The given doc contains 4 sentences. Therefore, if the length of the sentences_list==4 then test case will pass else fail.
+The test_concept function contains a concept doc and a word, both of them are passed as arguments to the concept(doc,w) function in project1.py and extracts the redacted sentences_list. The given doc contains 5 sentences. Therefore, if the length of the sentences_list==5 then test case will pass else fail.
 ### Test cases execution
 After connecting to the instance using SSH.
 
