@@ -1,6 +1,0 @@
-The number of names redacted from the file is: 2
-The number of dates redacted from the file is: 5
-The number of phone numbers redacted from the file is: 0
-The number of gender terms redacted from the file is: 0
-The number of addresses redacted from the file is: 0
-The number of sentences redacted from the file is: 6
