@@ -138,26 +138,26 @@ def output(doc,filename,path):
         f.close()
 
 stats_list=[]
-def stats(doc_stats,stats_path,i,w):
+def stats(doc_stats,stats_path,filename,w):
     nlp_doc=nlp(doc_stats)
     stats=''
     (doc_stats,names_redacted)=names(doc_stats)
-    stats="The number of names redacted from input file %d is: %d" %(i, len(names_redacted)) + '\n'
+    stats="The number of names redacted from %s is: %d" %(filename, len(names_redacted)) + '\n'
     stats_list.append(stats)
     (doc_stats,dates_redacted)=dates(doc_stats)
-    stats="The number of dates redacted from input file %d is: %d" %(i, len(dates_redacted)) + '\n'
+    stats="The number of dates redacted from %s is: %d" %(filename, len(dates_redacted)) + '\n'
     stats_list.append(stats)
     (doc_stats,phone_redacted)=phone_numbers(doc_stats)
-    stats="The number of phone numbers redacted from input file %d is: %d" %(i, len(phone_redacted)) +'\n'
+    stats="The number of phone numbers redacted from %s is: %d" %(filename, len(phone_redacted)) +'\n'
     stats_list.append(stats)
     (doc_stats,gender_redacted)=gender(doc_stats)
-    stats="The number of gender terms redacted from input file %d is: %d" %(i, len(gender_redacted)) +'\n'
+    stats="The number of gender terms redacted from %s is: %d" %(filename, len(gender_redacted)) +'\n'
     stats_list.append(stats)
     (doc_stats,address_redacted)=address(doc_stats)
-    stats="The number of addresses redacted from input file %d is: %d" %(i, len(address_redacted)) +'\n'
+    stats="The number of addresses redacted from %s is: %d" %(filename, len(address_redacted)) +'\n'
     stats_list.append(stats)
     (doc_stats,sentences_redacted)=concept(doc_stats,w)
-    stats="The number of sentences redacted from input file %d is: %d" %(i, len(sentences_redacted)) +'\n'+'\n'
+    stats="The number of sentences redacted from %s is: %d" %(filename, len(sentences_redacted)) +'\n'+'\n'
     stats_list.append(stats)
 
     if stats_path=='stdout':

@@ -1,21 +1,21 @@
-The number of names redacted from input file 1 is: 2
-The number of dates redacted from input file 1 is: 5
-The number of phone numbers redacted from input file 1 is: 0
-The number of gender terms redacted from input file 1 is: 0
-The number of addresses redacted from input file 1 is: 0
-The number of sentences redacted from input file 1 is: 6
+The number of names redacted from input3.txt is: 2
+The number of dates redacted from input3.txt is: 5
+The number of phone numbers redacted from input3.txt is: 0
+The number of gender terms redacted from input3.txt is: 0
+The number of addresses redacted from input3.txt is: 0
+The number of sentences redacted from input3.txt is: 6
 
-The number of names redacted from input file 2 is: 7
-The number of dates redacted from input file 2 is: 1
-The number of phone numbers redacted from input file 2 is: 0
-The number of gender terms redacted from input file 2 is: 3
-The number of addresses redacted from input file 2 is: 0
-The number of sentences redacted from input file 2 is: 0
+The number of names redacted from input2.txt is: 7
+The number of dates redacted from input2.txt is: 1
+The number of phone numbers redacted from input2.txt is: 0
+The number of gender terms redacted from input2.txt is: 3
+The number of addresses redacted from input2.txt is: 0
+The number of sentences redacted from input2.txt is: 0
 
-The number of names redacted from input file 3 is: 14
-The number of dates redacted from input file 3 is: 2
-The number of phone numbers redacted from input file 3 is: 2
-The number of gender terms redacted from input file 3 is: 0
-The number of addresses redacted from input file 3 is: 3
-The number of sentences redacted from input file 3 is: 0
+The number of names redacted from input1.txt is: 14
+The number of dates redacted from input1.txt is: 2
+The number of phone numbers redacted from input1.txt is: 2
+The number of gender terms redacted from input1.txt is: 0
+The number of addresses redacted from input1.txt is: 3
+The number of sentences redacted from input1.txt is: 0
 
