@@ -43,10 +43,10 @@ if __name__=='__main__':
             filename=file
             p1.output(doc,filename,path)
         if args.stats:
-            a=args.stats
-            filename=file
-            p1.stats(doc_stats,a,filename,args.concept)
-
+            stats_path=args.stats
+            k=i
+            k+=1
+            p1.stats(doc_stats, stats_path, k, args.concept)
 
 
 
