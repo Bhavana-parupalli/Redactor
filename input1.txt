@@ -36,7 +36,7 @@ Elizabeth
 
 
 John Morris <morris.j@ei.com> on 12/19/2000 02:15:56 PM
-To: Elizabeth Brown <Elizabeth.Brown@enron.com>
+To: Elizabeth Brown <elizabeth.Brown@enron.com>
 cc:  
 
 Subject: Data
