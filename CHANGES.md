@@ -13,4 +13,5 @@ from commonregex import commonregex
 * Missing Stats --- Earlier i hardcoded the directory name. Now, i changed the code, so that any file name is given the stats output will be stored in that file.
 * File names not re-assigned correctly --- I have changed the code so that after redaction each input file will be saved with 'input file name.redacted' extension in the output files folder.
 * Output files not stored in respective folder --- I corrected the code so that output files will be correctly saved in the output folder.
-* Missing Bugs & Assumptions --- In names function in some cases if surname and firstname are seperated by comma(,) it is not considering it as single name. It is taking surname as one name and the first name as another name. I have mentioned assumptions for all the functions in the readme earlier.
+* Missing Bugs --- In names function in some cases if surname and firstname are seperated by comma(,) it is not considering it as single name. It is taking surname as one name and the first name as another name. 
+* Missing Assumptions --- I have already mentioned assumptions in the readme at the end of each function.
