@@ -1,6 +1,5 @@
 # cs5293sp22-project1
 ## Author: Bhavana Parupalli
-## Email: parupallibhavana123@ou.edu
 ## Packages installed
 ```bash
 pipenv install spacy
